@@ -3,10 +3,10 @@ import PropTypes from "prop-types"
 
 import "./Typewriter.css"
 
-const Typewriter = ({ speed }) => {
+const Typewriter = ({speed, children}) => {
     return (
         <div class="typewriter">
-            <h1>I am a Software Engineer.</h1>
+            {children}
         </div>
     )
 }
