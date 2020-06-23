@@ -1,7 +1,35 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+exports.createPages = async ({ actions, graphql, reporter }) => {
+    const { createPage } = actions
 
-// You can delete this file if you're not using it
+    const PostTemplate = require.resolve("./src/templates/PostTemplate.jsx")
+
+    const result = await graphql(`
+        {
+            allMarkdownRemark {
+                edges {
+                    node {
+                        html
+                        id
+                        frontmatter {
+                            path
+                            title
+                            author
+                        }
+                    }
+                }
+            }
+        }
+    `)
+
+    if (result.errors) {
+        reporter.panicOnBuild(`Error while running GraphQL query.`)
+        return
+    }
+
+    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+        createPage({
+            path: node.frontmatter.path,
+            component: PostTemplate,
+        })
+    })
+}
