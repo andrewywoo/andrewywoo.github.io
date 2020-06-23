@@ -2,15 +2,12 @@ import React from "react"
 
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
-import Typewriter from "../components/Typewriter"
+import IntroText from "../components/IntroText"
 
 const IndexPage = () => (
     <Layout>
         <SEO title="Home" />
-        <h1>My name is Andrew Woo.</h1>
-        <Typewriter>
-          <h2>I am a Software Engineer.</h2>
-        </Typewriter>
+        <IntroText />
     </Layout>
 )
 
