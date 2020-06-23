@@ -5,7 +5,7 @@ import "./Typewriter.css"
 const Typewriter = ({ speed }) => {
   return (
     <div class="typewriter">
-      <h1>I am a software developer.</h1>
+      <h1>I am a Software Engineer.</h1>
     </div>
   )
 }
