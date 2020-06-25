@@ -1,22 +1,14 @@
 import React from "react"
 import PropTypes from "prop-types"
+import "twin.macro"
 
 import Header from "../Header"
-import "./Layout.css"
 
 const Layout = ({ children }) => (
     <>
-        <div
-            style={{
-                margin: "3rem",
-                display: "flex",
-                flexFlow: "column",
-                justifyContent: "center",
-                alignItems: "center",
-            }}
-        >
+        <div tw="flex flex-col justify-center items-center mt-12">
             <Header />
-            <main>{children}</main>
+            <main tw="flex my-32">{children}</main>
             {/* <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
