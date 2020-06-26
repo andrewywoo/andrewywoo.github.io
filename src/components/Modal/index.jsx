@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import tw from "twin.macro"
 
 const Modal = ({ shouldShowModal, children }) => {
-    console.log(shouldShowModal);
     return (
         <div
             css={[
