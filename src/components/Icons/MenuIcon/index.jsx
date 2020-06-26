@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-function Menu({ width, height }) {
+const MenuIcon = ({ width, height }) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -31,14 +31,14 @@ function Menu({ width, height }) {
     )
 }
 
-Menu.propTypes = {
+MenuIcon.propTypes = {
     width: PropTypes.number,
     height: PropTypes.number,
 }
 
-Menu.defaultProps = {
-    width: 64,
-    height: 64,
+MenuIcon.defaultProps = {
+    width: 45,
+    height: 45,
 }
 
-export default Menu
+export default MenuIcon
