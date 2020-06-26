@@ -8,6 +8,8 @@ const MenuIcon = ({ width, height }) => {
             viewBox="0 0 128 128"
             width={`${width}px`}
             height={`${height}px`}
+            focusable="false"
+            aria-hidden="true"
         >
             <path
                 fill="#fff"

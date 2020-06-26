@@ -1,22 +1,35 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import "twin.macro"
 
 import Header from "../Header"
+import SideNavigationModal from "../SideNavigationModal"
 
-const Layout = ({ children }) => (
-    <>
-        <div tw="flex flex-col justify-center items-center mt-6">
-            <Header />
-            <main tw="flex my-32">{children}</main>
-            {/* <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer> */}
-        </div>
-    </>
-)
+const Layout = ({ children }) => {
+    const [shouldShowSideNavigation, setShouldShowSideNavigation] = useState(
+        false
+    )
+
+    useEffect(() => {
+        // Close side navigation any time user goes to new page.
+        setShouldShowSideNavigation(false)
+    }, [setShouldShowSideNavigation])
+
+    return (
+        <>
+            <SideNavigationModal
+                shouldShowSideNavigation={shouldShowSideNavigation}
+                setShouldShowSideNavigation={setShouldShowSideNavigation}
+            />
+            <div tw="flex flex-col justify-center items-center mt-6">
+                <Header
+                    setShouldShowSideNavigation={setShouldShowSideNavigation}
+                />
+                <main tw="container flex my-32">{children}</main>
+            </div>
+        </>
+    )
+}
 
 Layout.propTypes = {
     children: PropTypes.node.isRequired,

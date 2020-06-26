@@ -11,7 +11,7 @@ const IntroText = () => {
             </h1>
             <div tw="inline-block">
                 <Typewriter speed={2}>
-                    <h2 tw="text-3xl">I am a Software Engineer.</h2>
+                    <span tw="text-3xl">I am a Software Engineer.</span>
                 </Typewriter>
             </div>
         </div>
