@@ -6,7 +6,7 @@ import Header from "../Header"
 
 const Layout = ({ children }) => (
     <>
-        <div tw="flex flex-col justify-center items-center mt-12">
+        <div tw="flex flex-col justify-center items-center mt-6">
             <Header />
             <main tw="flex my-32">{children}</main>
             {/* <footer>

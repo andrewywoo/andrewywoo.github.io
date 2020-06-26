@@ -2,6 +2,8 @@ import React from "react"
 import { Link } from "gatsby"
 import "twin.macro"
 
+import Menu from "../Icons/Menu"
+
 function Header() {
     const links = [
         <Link to="/">Home</Link>,
@@ -11,10 +13,12 @@ function Header() {
 
     return (
         <header tw="container flex justify-between">
-            <span tw="ml-6">AW</span>
-            {/* <ProfileImg></ProfileImg> */}
+            {/* Rounded Profile Picture */}
+            <div tw="ml-6"></div>
             <nav>
-                <span tw="sm:hidden mr-6">Hamburger</span>
+                <div tw="sm:hidden mr-3">
+                 <Menu width={45} height={45} />
+                </div>
                 <ul tw="hidden sm:flex flex-row">
                     {links.map(el => {
                         return <li tw="mx-6">{el}</li>
