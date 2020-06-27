@@ -5,17 +5,18 @@ import tw from "twin.macro"
 import MenuIcon from "../Icons/MenuIcon"
 import NavLinks from "../NavLinks"
 
-const Navigation = ({ shouldShowSideNavigation, setShouldShowSideNavigation }) => {
-    console.log(shouldShowSideNavigation);
+const Navigation = ({
+    shouldShowSideNavigation,
+    setShouldShowSideNavigation,
+}) => {
     return (
         <nav aria-label="primary">
-            <div tw="sm:hidden mr-3">
+            <div tw="sm:hidden mr-3 h-12">
                 <button
                     css={shouldShowSideNavigation && tw`hidden`}
                     aria-hidden={shouldShowSideNavigation}
                     aria-label="Open Menu"
                     onClick={() => {
-                        console.log("clicked Open");
                         setShouldShowSideNavigation(true)
                     }}
                 >

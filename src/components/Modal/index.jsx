@@ -9,7 +9,6 @@ const Modal = ({ shouldShowModal, children }) => {
         <>
             <Backdrop shouldShowBackdrop={shouldShowModal} />
             <div
-                inert
                 aria-hidden={!shouldShowModal}
                 role="dialog"
                 aria-haspopup="dialog"

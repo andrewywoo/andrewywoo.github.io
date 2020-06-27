@@ -17,7 +17,6 @@ const SideNavigationModal = ({
                     css={!shouldShowSideNavigation && tw`hidden`}
                     aria-label="Close Menu"
                     onClick={() => {
-                        console.log("clicked close")
                         setShouldShowSideNavigation(false)
                     }}
                 >

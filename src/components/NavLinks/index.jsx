@@ -20,7 +20,7 @@ const NavLinks = ({ isModal, isLinkFocusable }) => {
                         key={link.key}
                         css={[
                             isModal ? tw`text-xl py-2 ml-6` : tw`mx-6`,
-                            (isLinkFocusable && isModal) && tw`hidden`,
+                            isLinkFocusable && isModal && tw`hidden`,
                         ]}
                     >
                         {link.linkEl}
