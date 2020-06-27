@@ -1,10 +1,16 @@
-const plugin = require('tailwindcss/plugin')
+const plugin = require("tailwindcss/plugin")
 
 module.exports = {
-  purge: [],
-  theme: {
-    extend: {},
-  },
-  variants: {},
-  plugins: [],
+    purge: [],
+    theme: {
+        extend: {
+            spacing: {
+                "72": "18rem",
+                "84": "21rem",
+                "96": "24rem",
+            },
+        },
+    },
+    variants: {},
+    plugins: [],
 }

@@ -14,7 +14,7 @@ const Modal = ({ shouldShowModal, children }) => {
                 aria-haspopup="dialog"
                 aria-modal={!shouldShowModal}
                 css={[
-                    tw`fixed top-0 w-screen h-screen bg-white z-10`,
+                    tw`fixed top-0 w-screen h-screen bg-white z-20`,
                     tw`transition-transform duration-500 ease-in-out transform translate-x-0`,
                     !shouldShowModal && tw`translate-x-full`,
                 ]}
