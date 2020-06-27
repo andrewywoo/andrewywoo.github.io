@@ -10,8 +10,8 @@ const Navigation = ({
     setShouldShowSideNavigation,
 }) => {
     return (
-        <nav aria-label="primary">
-            <div tw="sm:hidden mr-3 h-12">
+        <nav aria-label="primary" tw="sm:py-4 align-middle">
+            <div tw="sm:hidden mr-3 h-16">
                 <button
                     css={shouldShowSideNavigation && tw`hidden`}
                     aria-hidden={shouldShowSideNavigation}

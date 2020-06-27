@@ -21,12 +21,12 @@ const Layout = ({ children }) => {
                 shouldShowSideNavigation={shouldShowSideNavigation}
                 setShouldShowSideNavigation={setShouldShowSideNavigation}
             />
-            <div tw="flex flex-col justify-center items-center mt-6">
+            <div tw="flex flex-col justify-center items-center">
                 <Header
                     shouldShowSideNavigation={shouldShowSideNavigation}
                     setShouldShowSideNavigation={setShouldShowSideNavigation}
                 />
-                <main tw="container flex my-32">{children}</main>
+                <main tw="container">{children}</main>
             </div>
         </>
     )

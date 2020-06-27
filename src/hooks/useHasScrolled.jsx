@@ -1,0 +1,21 @@
+import { useState, useEffect } from "react"
+
+const useHasScrolled = () => {
+    const [hasScrolled, setHasScrolled] = useState(false)
+
+    useEffect(() => {
+        function handleScroll() {
+            if (window.pageYOffset > 0) {
+                setHasScrolled(true)
+            } else {
+                setHasScrolled(false)
+            }
+        }
+
+        window.addEventListener("scroll", handleScroll)
+    })
+
+    return hasScrolled
+}
+
+export default useHasScrolled
