@@ -3,7 +3,7 @@ import "twin.macro"
 
 import Typewriter from "./Typewriter"
 
-const IntroText = () => {
+const IntroText = ({ animatedText }) => {
     return (
         <div tw="mx-6">
             <h1 tw="text-5xl">
@@ -11,7 +11,7 @@ const IntroText = () => {
             </h1>
             <div tw="inline-block">
                 <Typewriter speed={2}>
-                    <span tw="text-3xl">I am a Software Engineer.</span>
+                    <span tw="text-3xl">{animatedText}</span>
                 </Typewriter>
             </div>
         </div>
