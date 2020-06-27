@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import "twin.macro"
 
-import Header from "../Header"
-import SideNavigationModal from "../SideNavigationModal"
+import Header from "./Header"
+import SideNavigationModal from "./SideNavigationModal"
 
 const Layout = ({ children }) => {
     const [shouldShowSideNavigation, setShouldShowSideNavigation] = useState(

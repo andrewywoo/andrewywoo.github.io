@@ -1,8 +1,8 @@
 import React from "react"
 import tw from "twin.macro"
 
-import Navigation from "../Navigation"
-import useHasScrolled from "../../hooks/useHasScrolled"
+import Navigation from "./Navigation"
+import useHasScrolled from "../hooks/useHasScrolled"
 
 const Header = ({ shouldShowSideNavigation, setShouldShowSideNavigation }) => {
     const hasScrolled = useHasScrolled()

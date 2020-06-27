@@ -2,16 +2,16 @@ import React from "react"
 import PropTypes from "prop-types"
 import tw from "twin.macro"
 
-import MenuIcon from "../Icons/MenuIcon"
-import NavLinks from "../NavLinks"
+import MenuIcon from "./Icons/MenuIcon"
+import NavLinks from "./NavLinks"
 
 const Navigation = ({
     shouldShowSideNavigation,
     setShouldShowSideNavigation,
 }) => {
     return (
-        <nav aria-label="primary" tw="sm:py-4 align-middle">
-            <div tw="sm:hidden mr-3 h-16">
+        <nav aria-label="primary" tw="h-16 flex items-center">
+            <div tw="sm:hidden pr-3">
                 <button
                     css={shouldShowSideNavigation && tw`hidden`}
                     aria-hidden={shouldShowSideNavigation}

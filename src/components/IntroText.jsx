@@ -1,7 +1,7 @@
 import React from "react"
 import "twin.macro"
 
-import Typewriter from "../Typewriter"
+import Typewriter from "./Typewriter"
 
 const IntroText = () => {
     return (

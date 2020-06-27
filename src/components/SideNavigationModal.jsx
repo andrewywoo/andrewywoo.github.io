@@ -2,9 +2,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import tw from "twin.macro"
 
-import Modal from "../Modal"
-import NavLinks from "../NavLinks"
-import CloseIcon from "../Icons/CloseIcon"
+import Modal from "./Modal"
+import NavLinks from "./NavLinks"
+import CloseIcon from "./Icons/CloseIcon"
 
 const SideNavigationModal = ({
     shouldShowSideNavigation,
@@ -12,7 +12,7 @@ const SideNavigationModal = ({
 }) => {
     return (
         <Modal shouldShowModal={shouldShowSideNavigation}>
-            <div tw="container flex justify-end pr-3">
+            <div tw="container flex justify-end pt-2 pr-3">
                 <button
                     css={!shouldShowSideNavigation && tw`hidden`}
                     aria-label="Close Menu"

@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import tw from "twin.macro"
 
-import Backdrop from "../Backdrop"
+import Backdrop from "./Backdrop"
 
 const Modal = ({ shouldShowModal, children }) => {
     return (
@@ -14,7 +14,8 @@ const Modal = ({ shouldShowModal, children }) => {
                 aria-haspopup="dialog"
                 aria-modal={!shouldShowModal}
                 css={[
-                    tw`transition-transform duration-500 ease-in-out fixed top-0 transform translate-x-0 w-screen h-screen bg-white z-10 pt-6`,
+                    tw`fixed top-0 w-screen h-screen bg-white z-10`,
+                    tw`transition-transform duration-500 ease-in-out transform translate-x-0`,
                     !shouldShowModal && tw`translate-x-full`,
                 ]}
             >
