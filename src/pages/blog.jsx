@@ -29,7 +29,7 @@ const Blog = () => {
     )
 
     return (
-        <Layout>
+        <Layout slug="blog">
             <SEO title="Blog" />
             <header>
                 <h1>Blog</h1>

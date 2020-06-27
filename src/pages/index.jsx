@@ -21,7 +21,7 @@ const IndexPage = () => {
     `)
 
     return (
-        <Layout>
+        <Layout slug="home">
             <SEO title="Home" />
             <section tw="container flex flex-wrap justify-center items-center my-8 md:my-32">
                 <Img
@@ -31,9 +31,9 @@ const IndexPage = () => {
                 />
                 <IntroText />
             </section>
-            {new Array(6).fill(1).map(() => {
+            {new Array(6).fill(1).map((e, i) => {
                 return (
-                    <section tw="my-32">
+                    <section key={i} tw="my-32">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore
                         magna aliqua. Ut enim ad minim veniam, quis nostrud
