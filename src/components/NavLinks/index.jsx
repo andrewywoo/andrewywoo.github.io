@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import tw from "twin.macro"
 
-const NavLinks = ({ isModal }) => {
+const NavLinks = ({ isModal, isLinkFocusable }) => {
     const links = [
         { key: "home", linkEl: <Link to="/">Home</Link> },
         { key: "work", linkEl: <Link to="/work">Work</Link> },
@@ -18,7 +18,10 @@ const NavLinks = ({ isModal }) => {
                 return (
                     <li
                         key={link.key}
-                        css={isModal ? tw`text-xl py-2 ml-6` : tw`mx-6`}
+                        css={[
+                            isModal ? tw`text-xl py-2 ml-6` : tw`mx-6`,
+                            (isLinkFocusable && isModal) && tw`hidden`,
+                        ]}
                     >
                         {link.linkEl}
                     </li>
@@ -30,10 +33,12 @@ const NavLinks = ({ isModal }) => {
 
 NavLinks.propTypes = {
     isModal: PropTypes.bool,
+    isLinkFocusable: PropTypes.bool,
 }
 
 NavLinks.defaultProps = {
     isModal: false,
+    isLinkFocusable: true,
 }
 
 export default NavLinks

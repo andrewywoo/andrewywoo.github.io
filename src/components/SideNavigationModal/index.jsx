@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import "twin.macro"
+import tw from "twin.macro"
 
 import Modal from "../Modal"
 import NavLinks from "../NavLinks"
@@ -14,15 +14,20 @@ const SideNavigationModal = ({
         <Modal shouldShowModal={shouldShowSideNavigation}>
             <div tw="container flex justify-end pr-3">
                 <button
+                    css={!shouldShowSideNavigation && tw`hidden`}
                     aria-label="Close Menu"
                     onClick={() => {
+                        console.log("clicked close")
                         setShouldShowSideNavigation(false)
                     }}
                 >
                     <CloseIcon />
                 </button>
             </div>
-            <NavLinks isModal={true} />
+            <NavLinks
+                isLinkFocusable={!shouldShowSideNavigation}
+                isModal={true}
+            />
         </Modal>
     )
 }
