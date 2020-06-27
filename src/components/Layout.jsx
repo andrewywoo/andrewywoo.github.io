@@ -5,7 +5,7 @@ import "twin.macro"
 import Header from "./Header"
 import SideNavigationModal from "./SideNavigationModal"
 
-const Layout = ({ slug, children }) => {
+const Layout = ({ shouldShowProfileHeader, children }) => {
     const [shouldShowSideNavigation, setShouldShowSideNavigation] = useState(
         false
     )
@@ -13,15 +13,10 @@ const Layout = ({ slug, children }) => {
     useEffect(() => {
         // Close side navigation any time user goes to new page.
         setShouldShowSideNavigation(false)
-
-        if(slug === 'home'){
-            console.log("hello")
-        }
-
     }, [setShouldShowSideNavigation])
 
     return (
-        <>
+        <div>
             <SideNavigationModal
                 shouldShowSideNavigation={shouldShowSideNavigation}
                 setShouldShowSideNavigation={setShouldShowSideNavigation}
@@ -30,16 +25,21 @@ const Layout = ({ slug, children }) => {
                 <Header
                     shouldShowSideNavigation={shouldShowSideNavigation}
                     setShouldShowSideNavigation={setShouldShowSideNavigation}
+                    shouldShowProfileHeader={shouldShowProfileHeader}
                 />
                 <main tw="container">{children}</main>
             </div>
-        </>
+        </div>
     )
 }
 
 Layout.propTypes = {
-    slug: PropTypes.string.isRequired,
+    shouldShowProfileHeader: PropTypes.bool,
     children: PropTypes.node.isRequired,
+}
+
+Layout.defaultProps = {
+    shouldShowProfileHeader: true,
 }
 
 export default Layout

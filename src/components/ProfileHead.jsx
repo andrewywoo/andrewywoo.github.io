@@ -3,7 +3,7 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import tw from "twin.macro"
 
-const ProfileHead = () => {
+const ProfileHead = ({ shouldShowProfileHeader }) => {
     const data = useStaticQuery(graphql`
         query {
             file(relativePath: { eq: "cactus_andrew.jpg" }) {
@@ -19,14 +19,14 @@ const ProfileHead = () => {
     const [shouldFadeIn, setShouldFadeIn] = useState(false)
 
     useEffect(() => {
-        setShouldFadeIn(true)
-    }, [setShouldFadeIn])
+        setShouldFadeIn(shouldShowProfileHeader)
+    }, [setShouldFadeIn, shouldShowProfileHeader])
 
     return (
         <>
             <div
                 css={[
-                    tw`opacity-0 flex items-center transition duration-500 ease-in`,
+                    tw`opacity-0 flex items-center transition duration-500 ease-in-out`,
                     shouldFadeIn && tw`opacity-100`,
                 ]}
             >

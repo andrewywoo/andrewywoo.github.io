@@ -5,7 +5,7 @@ import SEO from "../components/Seo"
 
 function Work() {
     return (
-        <Layout slug="work">
+        <Layout>
             <SEO title="Work" />
             <div>
                 This is my work!

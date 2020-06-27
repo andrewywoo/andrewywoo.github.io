@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState, useRef } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import "twin.macro"
@@ -20,10 +20,34 @@ const IndexPage = () => {
         }
     `)
 
+    const sectionRef = useRef(null)
+    const [shouldShowProfileHeader, setShouldShowProfileHeader] = useState(
+        false
+    )
+
+    useEffect(() => {
+        function shouldShowProfileHeader(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setShouldShowProfileHeader(false)
+                } else {
+                    setShouldShowProfileHeader(true)
+                }
+            })
+        }
+
+        let observer = new IntersectionObserver(shouldShowProfileHeader, {})
+
+        observer.observe(sectionRef.current)
+    }, [sectionRef, setShouldShowProfileHeader])
+
     return (
-        <Layout slug="home">
+        <Layout shouldShowProfileHeader={shouldShowProfileHeader}>
             <SEO title="Home" />
-            <section tw="container flex flex-wrap justify-center items-center my-8 md:my-32">
+            <section
+                ref={sectionRef}
+                tw="container flex flex-wrap justify-center items-center my-8 md:my-32"
+            >
                 <Img
                     tw="h-56 w-56 md:h-96 md:w-96 rounded-full"
                     fluid={data.file.childImageSharp.fluid}

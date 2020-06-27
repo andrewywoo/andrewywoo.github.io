@@ -1,11 +1,16 @@
 import React from "react"
+import PropTypes from "prop-types"
 import tw from "twin.macro"
 
 import ProfileHead from "./ProfileHead"
 import Navigation from "./Navigation"
 import useHasScrolled from "../hooks/useHasScrolled"
 
-const Header = ({ shouldShowSideNavigation, setShouldShowSideNavigation }) => {
+const Header = ({
+    shouldShowSideNavigation,
+    setShouldShowSideNavigation,
+    shouldShowProfileHeader,
+}) => {
     const hasScrolled = useHasScrolled()
 
     return (
@@ -17,7 +22,9 @@ const Header = ({ shouldShowSideNavigation, setShouldShowSideNavigation }) => {
         >
             <div tw="container mx-auto flex justify-between">
                 {/* Rounded Profile Picture */}
-                <ProfileHead />
+                <ProfileHead
+                    shouldShowProfileHeader={shouldShowProfileHeader}
+                />
                 <Navigation
                     shouldShowSideNavigation={shouldShowSideNavigation}
                     setShouldShowSideNavigation={setShouldShowSideNavigation}
@@ -25,6 +32,16 @@ const Header = ({ shouldShowSideNavigation, setShouldShowSideNavigation }) => {
             </div>
         </header>
     )
+}
+
+Header.propTypes = {
+    shouldShowSideNavigation: PropTypes.bool.isRequired,
+    setShouldShowSideNavigation: PropTypes.func.isRequired,
+    shouldShowProfileHeader: PropTypes.bool,
+}
+
+Header.defaultProps = {
+    shouldShowProfileHeader: true,
 }
 
 export default Header
