@@ -1,20 +1,32 @@
 import React from "react"
-import tw from "twin.macro"
+import tw, { styled } from "twin.macro"
 
 function SkillsSection() {
-
-    const Header3 = tw.h3`font-medium text-red-400`
-    const SkillsCard = tw.div`border-2 rounded-md shadow-md w-48 m-3 py-3`
+    const Header3 = tw.h3`font-medium text-red-500`
+    const SkillsCard = styled.div`
+    ${tw`border rounded-md shadow-md w-10/12 sm:w-48 m-3 py-3`}
+    ${tw`transition duration-200 hover:transform hover:scale-110`}
+    ${tw`hover:bg-red-500 hover:text-white`}
+    &:hover {
+        h3 {
+            @apply ${tw`text-white underline`};
+        }
+    }
+    `
 
     return (
         <section tw="h-auto w-full mx-auto my-32 md:my-64 text-2xl md:text-3xl text-center">
-            <h2>Skills</h2>
+            <h2 tw="font-medium text-3xl md:text-4xl pb-8 sm:pb-16">
+                I have worked with the following:
+            </h2>
             <div tw="flex flex-wrap justify-center">
                 <SkillsCard>
                     <Header3>Web</Header3>
                     <ul>
                         <li>HTML5</li>
                         <li>CSS3</li>
+                        <li>SCSS</li>
+                        <li>GraphQL</li>
                     </ul>
                 </SkillsCard>
                 <SkillsCard>
@@ -32,12 +44,14 @@ function SkillsSection() {
                     <Header3>Java</Header3>
                     <ul>
                         <li>Spring</li>
+                        <li>MyBatis</li>
                     </ul>
                 </SkillsCard>
                 <SkillsCard>
                     <Header3>Python</Header3>
                     <ul>
                         <li>Flask</li>
+                        <li>peewee</li>
                     </ul>
                 </SkillsCard>
                 <SkillsCard>

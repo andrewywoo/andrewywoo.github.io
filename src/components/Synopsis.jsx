@@ -1,17 +1,28 @@
 import React from "react"
 import "twin.macro"
 
+import bongoCatGif from "../gifs/BongoCatKeyboard.gif"
+
 const Synopsis = () => {
     return (
-        <section tw="h-auto w-3/4 mx-auto my-32 md:my-64 text-2xl md:text-3xl">
-            Having worked as a software engineer for 8+ years across the stack,
-            I've been exposed to many projects that solve a wide array of
-            problems. These problems span from securities processing in fintech
-            to growth engineering in e-commerce. I take a heavy interest in the
-            web and the evolving landscape of web technologies. Front end web
-            development is a major interest of mine as I strive to deliver great
-            user experience through design.
-        </section>
+        <>
+            <section tw="h-auto w-3/4 mx-auto my-32 md:my-64 text-2xl md:text-3xl">
+                I've been exposed to many projects that solve a wide array of
+                problems. These problems span from securities processing, growth
+                engineering, application modernization, and many more.
+            </section>
+            <section tw="h-auto w-full mx-auto my-32 md:my-64 text-2xl md:text-3xl flex justify-around flex-wrap-reverse">
+                <div tw="w-1/2">
+                    Front end web development is a major interest of mine as I
+                    strive to deliver great user experience through code and
+                    design. I take a heavy interest in the web and the evolving
+                    landscape of web technologies.
+                </div>
+                <div>
+                    <img src={bongoCatGif} alt="Cat banging on keyboard" />
+                </div>
+            </section>
+        </>
     )
 }
 

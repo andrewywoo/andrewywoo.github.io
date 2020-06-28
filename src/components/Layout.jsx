@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import "twin.macro"
 
-import Header from "./Header"
 import SideNavigationModal from "./SideNavigationModal"
+import Header from "./Header"
+import Footer from "./Footer"
 
 const Layout = ({ shouldShowProfileHeader, children }) => {
     const [shouldShowSideNavigation, setShouldShowSideNavigation] = useState(
@@ -16,7 +17,7 @@ const Layout = ({ shouldShowProfileHeader, children }) => {
     }, [setShouldShowSideNavigation])
 
     return (
-        <div>
+        <>
             <SideNavigationModal
                 shouldShowSideNavigation={shouldShowSideNavigation}
                 setShouldShowSideNavigation={setShouldShowSideNavigation}
@@ -29,7 +30,8 @@ const Layout = ({ shouldShowProfileHeader, children }) => {
                 />
                 <main tw="container">{children}</main>
             </div>
-        </div>
+            <Footer />
+        </>
     )
 }
 
