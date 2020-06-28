@@ -17,15 +17,15 @@ function SkillsSection() {
     return (
         <section tw="h-auto w-full mx-auto my-32 md:my-64 text-2xl md:text-3xl text-center">
             <h2 tw="font-medium text-3xl md:text-4xl pb-8 sm:pb-16">
-                I have worked with the following:
+                I am proficient with the following:
             </h2>
             <div tw="flex flex-wrap justify-center">
                 <SkillsCard>
                     <Header3>Web</Header3>
                     <ul>
                         <li>HTML5</li>
-                        <li>CSS3</li>
-                        <li>SCSS</li>
+                        <li>CSS3 / SCSS</li>
+                        <li>RESTful API</li>
                         <li>GraphQL</li>
                     </ul>
                 </SkillsCard>
