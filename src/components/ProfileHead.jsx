@@ -16,7 +16,7 @@ const ProfileHead = ({ shouldShowProfileHeader }) => {
         }
     `)
 
-    const [shouldFadeIn, setShouldFadeIn] = useState(false)
+    const [shouldFadeIn, setShouldFadeIn] = useState(false);
 
     useEffect(() => {
         setShouldFadeIn(shouldShowProfileHeader)
