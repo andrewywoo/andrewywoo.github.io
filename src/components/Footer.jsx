@@ -7,7 +7,7 @@ import GithubIcon from "./Icons/GithubIcon"
 
 const Footer = () => {
     return (
-        <footer tw="w-full mx-auto bg-gray-200">
+        <footer tw="w-full mx-auto bg-gray-200 absolute bottom-0 h-32">
             <div tw="flex flex-col items-center pt-12 space-y-3">
                 <div tw="flex space-x-6">
                     <TwitterIcon />
