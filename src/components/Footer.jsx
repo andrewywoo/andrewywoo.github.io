@@ -10,9 +10,9 @@ const Footer = () => {
         <footer tw="w-full mx-auto bg-gray-200 absolute bottom-0 h-32">
             <div tw="flex flex-col items-center pt-12 space-y-3">
                 <div tw="flex space-x-6">
-                    <TwitterIcon />
-                    <LinkedInIcon />
-                    <GithubIcon />
+                    <a href="https://twitter.com/andrewywoo" target="_blank" rel="noreferrer" aria-label="Andrew's Twitter Profile"><TwitterIcon /></a>
+                    <a href="https://www.linkedin.com/in/andrewyhwoo/" target="_blank" rel="noreferrer" aria-label="Andrew's Linkedin Profile"><LinkedInIcon /></a>
+                    <a href="https://github.com/andrewywoo" target="_blank" rel="noreferrer" aria-label="Andrew's Github"><GithubIcon /></a>
                 </div>
                 <span>&copy; {new Date().getFullYear()} Andrew Woo</span>
             </div>

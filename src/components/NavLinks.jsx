@@ -36,7 +36,7 @@ const NavLinks = ({ isModal, isLinkFocusable }) => {
 
     return (
         <ul
-            css={isModal ? tw`flex flex-col mt-6` : tw`hidden sm:flex flex-row space-x-12`}
+            css={isModal ? tw`flex flex-col mt-6` : tw`hidden sm:flex flex-row space-x-12 mr-6`}
         >
             {links.map(link => {
                 return (
