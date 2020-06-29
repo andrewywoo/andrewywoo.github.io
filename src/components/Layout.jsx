@@ -22,15 +22,15 @@ const Layout = ({ shouldShowProfileHeader, children }) => {
                 shouldShowSideNavigation={shouldShowSideNavigation}
                 setShouldShowSideNavigation={setShouldShowSideNavigation}
             />
-            <div tw="flex flex-col justify-center items-center">
+            <div tw="flex flex-col justify-center items-center relative">
                 <Header
                     shouldShowSideNavigation={shouldShowSideNavigation}
                     setShouldShowSideNavigation={setShouldShowSideNavigation}
                     shouldShowProfileHeader={shouldShowProfileHeader}
                 />
                 <main tw="container">{children}</main>
+                <Footer />
             </div>
-            <Footer />
         </>
     )
 }

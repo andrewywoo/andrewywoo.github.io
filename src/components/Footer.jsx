@@ -7,15 +7,15 @@ import GithubIcon from "./Icons/GithubIcon"
 
 const Footer = () => {
     return (
-        <footer tw="w-full mx-auto flex flex-col items-center pt-12 space-y-3 bg-gray-200">
-            <div tw="flex space-x-6">
-                <TwitterIcon />
-                <LinkedInIcon />
-                <GithubIcon />
+        <footer tw="w-full mx-auto bg-gray-200">
+            <div tw="flex flex-col items-center pt-12 space-y-3">
+                <div tw="flex space-x-6">
+                    <TwitterIcon />
+                    <LinkedInIcon />
+                    <GithubIcon />
+                </div>
+                <span>&copy; {new Date().getFullYear()} Andrew Woo</span>
             </div>
-            <span>
-                Created by Andrew Woo &copy; {new Date().getFullYear()}
-            </span>
         </footer>
     )
 }

@@ -4,22 +4,46 @@ import { Link } from "gatsby"
 import tw from "twin.macro"
 
 const NavLinks = ({ isModal, isLinkFocusable }) => {
+    const activeStyleLink = tw`underline`
+    const StyledLink = tw(Link)`text-xl hover:text-red-500`
+
     const links = [
-        { key: "home", linkEl: <Link to="/">Home</Link> },
-        { key: "work", linkEl: <Link to="/work">Work</Link> },
-        { key: "blog", linkEl: <Link to="/blog">Blog</Link> },
+        {
+            key: "home",
+            linkEl: (
+                <StyledLink to="/" activeStyle={activeStyleLink}>
+                    Home
+                </StyledLink>
+            ),
+        },
+        {
+            key: "work",
+            linkEl: (
+                <StyledLink to="/work" activeStyle={activeStyleLink}>
+                    Work
+                </StyledLink>
+            ),
+        },
+        {
+            key: "blog",
+            linkEl: (
+                <StyledLink to="/blog" activeStyle={activeStyleLink}>
+                    Blog
+                </StyledLink>
+            ),
+        },
     ]
 
     return (
         <ul
-            css={isModal ? tw`flex flex-col mt-6` : tw`hidden sm:flex flex-row`}
+            css={isModal ? tw`flex flex-col mt-6` : tw`hidden sm:flex flex-row space-x-12`}
         >
             {links.map(link => {
                 return (
                     <li
                         key={link.key}
                         css={[
-                            isModal ? tw`text-xl py-2 ml-6` : tw`mx-6`,
+                            isModal && tw`text-xl py-2 ml-6`,
                             isLinkFocusable && isModal && tw`hidden`,
                         ]}
                     >
