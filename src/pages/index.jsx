@@ -30,7 +30,9 @@ const IndexPage = () => {
     const [shouldShowProfileHeader, setShouldShowProfileHeader] = useState(
         false
     )
+
     const sectionRef = useRef(null)
+
     useEffect(() => {
         function shouldShowProfileHeader(entries) {
             entries.forEach(entry => {
