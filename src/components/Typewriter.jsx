@@ -3,16 +3,16 @@ import PropTypes from "prop-types"
 import { styled } from "twin.macro"
 import { keyframes } from "@emotion/core"
 
-const Typewriter = ({ speed, children }) => {
-    const typing = keyframes`
-    from { width: 0 }
-    to { width: 100% }
-    `
-    const blinkCaret = keyframes`
-    from, to { border-color: transparent }
-    50% { border-color: black; }
-    `
+const typing = keyframes`
+from { width: 0 }
+to { width: 100% }
+`
+const blinkCaret = keyframes`
+from, to { border-color: transparent }
+50% { border-color: black; }
+`
 
+const Typewriter = ({ speed, children }) => {
     const StyledDiv = styled.div`
         overflow: hidden;
         border-right: 0.15em solid black;
