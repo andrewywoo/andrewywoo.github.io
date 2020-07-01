@@ -7,6 +7,7 @@ const WorkHeader = tw.h2`text-lg font-medium`
 const WorkSection = tw.section`flex flex-col sm:flex-row items-center`
 const WorkDateRange = tw.span`font-serif`
 
+// TODO: Potentially dynamically generate each work section
 const ProfessionalWork = () => {
     const { dailyHarvest, dtcc } = useStaticQuery(graphql`
         query {
