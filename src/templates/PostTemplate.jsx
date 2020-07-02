@@ -29,13 +29,22 @@ const PostTemplate = ({ data }) => {
         <Layout>
             <SEO title={title} />
             <article tw="my-8 mx-6">
-                <header tw="text-center">
+                <header tw="text-center lg:mb-16">
                     <div tw="font-serif text-lg">{date}</div>
-                    <h1 tw="text-4xl md:text-5xl font-bold mb-2 lg:mb-16 leading-none">{title}</h1>
+                    <h1 tw="text-4xl md:text-5xl font-bold mb-2 lg:mb-6 leading-none">
+                        {title}
+                    </h1>
+                    <hr tw="hidden lg:block" />
                 </header>
+
                 <div tw="flex flex-col items-center lg:flex-row lg:items-start">
                     <aside tw="text-center mb-8 lg:mb-0">
-                        <div tw="font-mono">written by {author}</div>
+                        <div tw="font-mono">
+                            written by{" "}
+                            <a href={`https://twitter.com/${author.substr(1)}`}>
+                                {author}
+                            </a>
+                        </div>
                         <Link
                             to="/blog"
                             tw="inline-block underline hover:text-red-500"
