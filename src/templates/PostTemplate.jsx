@@ -1,8 +1,22 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
+import tw, { styled } from "twin.macro"
 
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
+
+const BlogDiv = styled.div`
+    ${tw`mx-12 w-full lg:w-9/12`}
+    p {
+        ${tw`mb-6`}
+    }
+    h2 {
+        ${tw`text-3xl md:text-4xl font-medium mb-6`}
+    }
+    h3 {
+        ${tw`text-2xl md:text-3xl mb-2`}
+    }
+`
 
 const PostTemplate = ({ data }) => {
     const { markdownRemark: post } = data
@@ -14,13 +28,23 @@ const PostTemplate = ({ data }) => {
     return (
         <Layout>
             <SEO title={title} />
-            <article>
-                <header>
-                    <h1>{title}</h1>
-                    <h2>{date}</h2>
-                    <h3>written by {author}</h3>
+            <article tw="my-8 mx-6">
+                <header tw="text-center">
+                    <div tw="font-serif text-lg">{date}</div>
+                    <h1 tw="text-4xl md:text-5xl font-bold mb-2 lg:mb-16 leading-none">{title}</h1>
                 </header>
-                <div dangerouslySetInnerHTML={{ __html: html }} />
+                <div tw="flex flex-col items-center lg:flex-row lg:items-start">
+                    <aside tw="text-center mb-8 lg:mb-0">
+                        <div tw="font-mono">written by {author}</div>
+                        <Link
+                            to="/blog"
+                            tw="inline-block underline hover:text-red-500"
+                        >
+                            Back to the blog
+                        </Link>
+                    </aside>
+                    <BlogDiv dangerouslySetInnerHTML={{ __html: html }} />
+                </div>
             </article>
         </Layout>
     )
@@ -35,7 +59,7 @@ export const postQuery = graphql`
             frontmatter {
                 path
                 title
-                date(formatString: "MMMM DD, YYYY")
+                date(formatString: "dddd, MMMM Do YYYY")
                 author
             }
         }

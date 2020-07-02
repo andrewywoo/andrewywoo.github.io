@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import "twin.macro"
 
 import BorderedSection from "../components/BorderedSection"

@@ -7,7 +7,7 @@ const Synopsis = () => (
     <>
         <section tw="h-auto w-3/4 mx-auto my-32 md:my-64 text-2xl md:text-3xl">
             I've been exposed to many projects that solve a wide array of
-            problems. These problems span from securities processing, growth
+            problems that span from securities processing, growth
             engineering, application modernization, and many more.
         </section>
         <section tw="h-auto w-full mx-auto my-32 md:my-64 text-2xl md:text-3xl flex justify-around flex-wrap-reverse">

@@ -13,7 +13,7 @@ const PersonalWork = () => {
                     aria-label="Andrew's Github"
                     tw="text-2xl underline hover:text-red-500"
                 >
-                    Visit my github!
+                    Visit my GitHub!
                 </a>
             </div>
         </BorderedSection>

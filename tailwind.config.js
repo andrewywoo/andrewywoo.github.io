@@ -1,10 +1,11 @@
-const plugin = require("tailwindcss/plugin")
-
 module.exports = {
-    purge: [],
+    purge: ["./src/**/*.js", "./src/**/*.jsx"],
     theme: {
-        top: {
-            '-17': '-17px',
+        screens: {
+            sm: "640px",
+            md: "768px",
+            lg: "1024px",
+            xl: "1140px",
         },
         extend: {
             spacing: {

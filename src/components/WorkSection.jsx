@@ -3,7 +3,7 @@ import Img from "gatsby-image"
 import "twin.macro"
 
 const WorkSection = ({ img, title, dateRangeLabel }) => (
-    <section tw="flex flex-col sm:flex-row items-center space-x-6">
+    <section tw="flex flex-col sm:flex-row items-center sm:space-x-6">
         <Img fixed={img} />
         <div>
             <h2 tw="text-center sm:text-left text-lg font-medium">{title}</h2>
