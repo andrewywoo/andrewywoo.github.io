@@ -21,7 +21,6 @@ const Header = ({
             ]}
         >
             <div tw="container mx-auto flex justify-between">
-                {/* Rounded Profile Picture */}
                 <ProfileHead
                     shouldShowProfileHeader={shouldShowProfileHeader}
                 />

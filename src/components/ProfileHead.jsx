@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
+import PropTypes from "prop-types"
 import Img from "gatsby-image"
 import tw from "twin.macro"
 
@@ -16,7 +17,7 @@ const ProfileHead = ({ shouldShowProfileHeader }) => {
         }
     `)
 
-    const [shouldFadeIn, setShouldFadeIn] = useState(false);
+    const [shouldFadeIn, setShouldFadeIn] = useState(false)
 
     useEffect(() => {
         setShouldFadeIn(shouldShowProfileHeader)
@@ -45,6 +46,10 @@ const ProfileHead = ({ shouldShowProfileHeader }) => {
             </div>
         </>
     )
+}
+
+ProfileHead.propTypes = {
+    shouldShowProfileHeader: PropTypes.bool.isRequired,
 }
 
 export default ProfileHead

@@ -8,8 +8,6 @@ const PersonalWork = () => {
             <div tw="my-6 text-center sm:text-left">
                 <a
                     href="https://github.com/andrewywoo"
-                    target="_blank"
-                    rel="noreferrer"
                     aria-label="Andrew's Github"
                     tw="text-2xl underline hover:text-red-500"
                 >

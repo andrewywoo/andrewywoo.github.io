@@ -10,7 +10,7 @@ import IntroText from "../components/IntroText"
 import Synopsis from "../components/Synopsis"
 import SkillsSection from "../components/SkillsSection"
 
-const TYPING_TEXT = "I am a Software Engineer."
+const ANIMATED_TEXT = "I am a Software Engineer."
 
 const IndexPage = () => {
     const data = useStaticQuery(graphql`
@@ -25,7 +25,7 @@ const IndexPage = () => {
         }
     `)
 
-    const [animatedText, setAnimatedText] = useState(TYPING_TEXT)
+    const [animatedText, setAnimatedText] = useState(ANIMATED_TEXT)
 
     const [shouldShowProfileHeader, setShouldShowProfileHeader] = useState(
         false
@@ -47,6 +47,8 @@ const IndexPage = () => {
         let observer = new IntersectionObserver(shouldShowProfileHeader, {})
 
         observer.observe(sectionRef.current)
+
+        return () => observer.disconnect()
     }, [sectionRef, setShouldShowProfileHeader])
 
     return (
