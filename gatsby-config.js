@@ -5,6 +5,19 @@ module.exports = {
         author: `@andrewywoo`,
     },
     plugins: [
+        {
+            resolve: `gatsby-plugin-google-adsense`,
+            options: {
+                publisherId: `ca-pub-1431127993178422`,
+            },
+        },
+        {
+            resolve: `gatsby-plugin-google-analytics`,
+            options: {
+                trackingId: "UA-171543313-1",
+                head: true,
+            },
+        },
         `gatsby-plugin-react-helmet`,
         {
             resolve: `gatsby-source-filesystem`,
@@ -36,17 +49,5 @@ module.exports = {
             },
         },
         `gatsby-plugin-emotion`,
-        {
-            resolve: `gatsby-plugin-google-adsense`,
-            options: {
-                publisherId: `ca-pub-1431127993178422`,
-            },
-        },
-        {
-            resolve: `gatsby-plugin-google-analytics`,
-            options: {
-                trackingId: "UA-171543313-1",
-            },
-        },
     ],
 }

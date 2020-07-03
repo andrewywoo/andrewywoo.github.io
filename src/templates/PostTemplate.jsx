@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 import tw, { styled } from "twin.macro"
 
 import Layout from "../components/Layout"
@@ -41,9 +42,9 @@ const PostTemplate = ({ data }) => {
                     <aside tw="text-center mb-8 lg:mb-0">
                         <div tw="font-mono">
                             written by{" "}
-                            <a href={`https://twitter.com/${author.substr(1)}`}>
+                            <OutboundLink href={`https://twitter.com/${author.substr(1)}`}>
                                 {author}
-                            </a>
+                            </OutboundLink>
                         </div>
                         <Link
                             to="/blog"

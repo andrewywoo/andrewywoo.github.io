@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 import PropTypes from "prop-types"
 import tw from "twin.macro"
 
@@ -16,7 +17,7 @@ const BlogSection = ({ date, path, title, author, excerpt }) => (
             </StyledLink>
             <div tw="font-mono text-sm mt-2">
                 by{" "}
-                <a href={`https://twitter.com/${author.substr(1)}`}>{author}</a>
+                <OutboundLink href={`https://twitter.com/${author.substr(1)}`}>{author}</OutboundLink>
             </div>
             <div tw="mt-2">
                 {excerpt}
