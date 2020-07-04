@@ -19,7 +19,7 @@ const Blog = () => {
                         excerpt(pruneLength: 250)
                         id
                         frontmatter {
-                            path
+                            slug
                             title
                             date(formatString: "MMMM DD, YYYY")
                             author
@@ -42,14 +42,14 @@ const Blog = () => {
                 const {
                     id,
                     excerpt,
-                    frontmatter: { date, path, title, author },
+                    frontmatter: { date, slug, title, author },
                 } = post
 
                 return (
                     <BlogSection
                         key={id}
                         date={date}
-                        path={path}
+                        slug={slug}
                         title={title}
                         author={author}
                         excerpt={excerpt}

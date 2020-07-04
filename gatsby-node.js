@@ -1,7 +1,9 @@
 exports.createPages = async ({ actions, graphql, reporter }) => {
     const { createPage } = actions
 
-    const PostTemplate = require.resolve("./src/templates/PostTemplate.jsx")
+    const PostTemplate = require.resolve(
+        "./src/templates/PostTemplate/index.jsx"
+    )
 
     const result = await graphql(`
         {
@@ -11,7 +13,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                         html
                         id
                         frontmatter {
-                            path
+                            slug
                             title
                             author
                         }
@@ -27,9 +29,16 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     }
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+        const {
+            frontmatter: { slug },
+        } = node
+
         createPage({
-            path: node.frontmatter.path,
+            path: `/blog/${slug}/`,
             component: PostTemplate,
+            context: {
+                slug: slug,
+            },
         })
     })
 }

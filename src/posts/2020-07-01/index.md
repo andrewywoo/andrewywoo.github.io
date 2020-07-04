@@ -1,5 +1,5 @@
 ---
-path: "/blog/non-tech-skills-great-engineer"
+slug: "non-tech-skills-great-engineer"
 title: "Non Technical Skills That Make Great Software Engineers"
 date: "2020-07-01"
 author: "@andrewywoo"

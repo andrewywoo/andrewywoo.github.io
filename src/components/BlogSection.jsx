@@ -6,31 +6,39 @@ import tw from "twin.macro"
 
 const StyledLink = tw(Link)`text-2xl underline hover:text-red-500 leading-none`
 
-const BlogSection = ({ date, path, title, author, excerpt }) => (
-    <article tw="my-12 mx-6 flex flex-col md:flex-row justify-center items-center space-x-4 space-y-2">
-        <div tw="font-serif text-lg sm:text-xl self-start md:self-center w-full md:w-1/5">
-            {date}
-        </div>
-        <div tw="w-full">
-            <StyledLink to={path}>
-                <h2>{title}</h2>
-            </StyledLink>
-            <div tw="font-mono text-sm mt-2">
-                by{" "}
-                <OutboundLink href={`https://twitter.com/${author.substr(1)}`}>{author}</OutboundLink>
+const BlogSection = ({ date, slug, title, author, excerpt }) => {
+    const path = `/blog/${slug}/`
+
+    return (
+        <article tw="my-12 mx-6 flex flex-col md:flex-row justify-center items-center space-x-4 space-y-2">
+            <div tw="font-serif text-lg sm:text-xl self-start md:self-center w-full md:w-1/5">
+                {date}
             </div>
-            <div tw="mt-2">
-                {excerpt}
-                <span>
-                    {" "}
-                    <StyledLink tw="text-base" to={path}>
-                        Read More
-                    </StyledLink>
-                </span>
+            <div tw="w-full">
+                <StyledLink to={path}>
+                    <h2>{title}</h2>
+                </StyledLink>
+                <div tw="font-mono text-sm mt-2">
+                    by{" "}
+                    <OutboundLink
+                        href={`https://twitter.com/${author.substr(1)}`}
+                    >
+                        {author}
+                    </OutboundLink>
+                </div>
+                <div tw="mt-2">
+                    {excerpt}
+                    <span>
+                        {" "}
+                        <StyledLink tw="text-base" to={path}>
+                            Read More
+                        </StyledLink>
+                    </span>
+                </div>
             </div>
-        </div>
-    </article>
-)
+        </article>
+    )
+}
 
 BlogSection.propTypes = {
     date: PropTypes.string.isRequired,

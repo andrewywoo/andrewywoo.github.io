@@ -1,21 +1,22 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
-import tw, { styled } from "twin.macro"
+import "twin.macro"
 
-import Layout from "../components/Layout"
-import SEO from "../components/Seo"
+import Layout from "../../components/Layout"
+import SEO from "../../components/Seo"
+import { BlogDiv } from "./styled"
 
-const BlogDiv = styled.div`
-    ${tw`mx-12 w-full lg:w-9/12`}
-    p {
-        ${tw`mb-6`}
-    }
-    h2 {
-        ${tw`text-3xl md:text-4xl font-medium mb-6`}
-    }
-    h3 {
-        ${tw`text-2xl md:text-3xl mb-2`}
+export const query = graphql`
+    query($slug: String!) {
+        markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+            html
+            frontmatter {
+                title
+                date(formatString: "dddd, MMMM Do YYYY")
+                author
+            }
+        }
     }
 `
 
@@ -61,17 +62,3 @@ const PostTemplate = ({ data }) => {
 }
 
 export default PostTemplate
-
-export const postQuery = graphql`
-    query($path: String!) {
-        markdownRemark(frontmatter: { path: { eq: $path } }) {
-            html
-            frontmatter {
-                path
-                title
-                date(formatString: "dddd, MMMM Do YYYY")
-                author
-            }
-        }
-    }
-`
