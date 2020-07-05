@@ -42,7 +42,7 @@ const BlogSection = ({ date, slug, title, author, excerpt }) => {
 
 BlogSection.propTypes = {
     date: PropTypes.string.isRequired,
-    path: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
     excerpt: PropTypes.string.isRequired,

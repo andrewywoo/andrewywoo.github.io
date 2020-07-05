@@ -5,40 +5,70 @@ import "twin.macro"
 import BorderedSection from "../components/BorderedSection"
 import WorkSection from "../components/WorkSection"
 
-// TODO: Potentially dynamically generate each work section
+const works = [
+    {
+        key: "dailyHarvest",
+        title: "Daily Harvest",
+        imgName: "daily-harvest-logo.jpg",
+        dateRangeLabel: "November 2019 - Present",
+    },
+    {
+        key: "dtcc",
+        title: "Depository Trust & Clearing Corporation",
+        imgName: "dtcc-logo.jpeg",
+        dateRangeLabel: "September 2011 - November 2019",
+    },
+]
+
 const ProfessionalWork = () => {
-    const { dailyHarvest, dtcc } = useStaticQuery(graphql`
+    const {
+        allFile: { edges },
+    } = useStaticQuery(graphql`
         query {
-            dailyHarvest: file(relativePath: { eq: "daily-harvest-logo.jpg" }) {
-                childImageSharp {
-                    fixed(width: 75) {
-                        ...GatsbyImageSharpFixed
-                    }
-                }
-            }
-            dtcc: file(relativePath: { eq: "dtcc-logo.jpeg" }) {
-                childImageSharp {
-                    fixed(width: 75) {
-                        ...GatsbyImageSharpFixed
+            allFile(filter: { relativeDirectory: { eq: "work-logos" } }) {
+                edges {
+                    node {
+                        base
+                        childImageSharp {
+                            fixed(width: 75) {
+                                ...GatsbyImageSharpFixed
+                            }
+                        }
                     }
                 }
             }
         }
     `)
 
+    // TODO: Optimize time complexity
+    // * This map will grow O(n^2) where n is the number of worked places
+    // * This might not matter as work experience won't be that large.
+    const workedList = works.map(work => {
+        let result = {}
+        edges.forEach(edge => {
+            if (edge.node.base === work.imgName) {
+                result = {
+                    ...work,
+                    childImageSharp: edge.node.childImageSharp,
+                }
+            }
+        })
+        return result
+    })
+
     return (
         <BorderedSection sectionTitle="Work Experience">
             <div tw="my-6 space-y-8">
-                <WorkSection
-                    img={dailyHarvest.childImageSharp.fixed}
-                    title="Daily Harvest"
-                    dateRangeLabel="November 2019 - Present"
-                />
-                <WorkSection
-                    img={dtcc.childImageSharp.fixed}
-                    title="Depository Trust & Clearing Corporation"
-                    dateRangeLabel="September 2011 - November 2019"
-                />
+                {workedList.map(worked => {
+                    return (
+                        <WorkSection
+                            key={worked.key}
+                            img={worked.childImageSharp.fixed}
+                            title={worked.title}
+                            dateRangeLabel={worked.dateRangeLabel}
+                        />
+                    )
+                })}
             </div>
         </BorderedSection>
     )
