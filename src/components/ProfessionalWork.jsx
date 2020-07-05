@@ -40,9 +40,12 @@ const ProfessionalWork = () => {
         }
     `)
 
-    // TODO: Optimize time complexity
-    // * This map will grow O(n^2) where n is the number of worked places
-    // * This might not matter as work experience won't be that large.
+    /**
+     * TODO: Optimize time complexity
+     * *This map will grow O(n^2) where n is the number of worked places
+     * *This might not matter as work experience won't be that large
+     * Adds image fields to works array so we can iterate through it and generate WorkSection components.
+     */
     const workedList = works.map(work => {
         let result = {}
         edges.forEach(edge => {
