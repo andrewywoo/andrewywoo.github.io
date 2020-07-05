@@ -9,7 +9,7 @@ export const BlogDiv = styled.div`
         ${tw`text-3xl font-medium mb-6`}
     }
     h3 {
-        ${tw`text-2xl mb-2`}
+        ${tw`text-2xl mb-3`}
     }
     ul { 
         ${tw`list-disc list-inside mb-6`}
@@ -25,5 +25,11 @@ export const BlogDiv = styled.div`
      }
      ul p, ol p {
          ${tw`inline`}
+     }
+     pre {
+         ${tw`mb-6`}
+     }
+     code {
+         ${tw`text-sm`}
      }
 `

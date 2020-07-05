@@ -36,8 +36,8 @@ After researching some React based frameworks, I landed on Gatsby for a couple o
 [GraphQL](https://graphql.org/) has been on the top of my list to learn and use since I've heard about it at the start of my frontend journey. 
 A query language that gives you the flexibility of grabbing only the data that you need is a web developers dream! 
 
-As a small example, the query would look like:
-```js
+As a small example, a query would look like:
+```javascript
 {
     person {
         name
@@ -46,7 +46,7 @@ As a small example, the query would look like:
 ```
 
 Which produces JSON like this:
-```js
+```javascript
 {
     person: {
         name: "Andrew"
