@@ -36,6 +36,24 @@ After researching some React based frameworks, I landed on Gatsby for a couple o
 [GraphQL](https://graphql.org/) has been on the top of my list to learn and use since I've heard about it at the start of my frontend journey. 
 A query language that gives you the flexibility of grabbing only the data that you need is a web developers dream! 
 
+As a small example, the query would look like:
+```js
+{
+    person {
+        name
+    }
+}
+```
+
+Which produces JSON like this:
+```js
+{
+    person: {
+        name: "Andrew"
+    }
+}
+```
+
 Gatsby choice of using GraphQL for data related procedures allows for more benefits on top of what GraphQL offers. 
 
 Not only does using GraphQL cut down on resource requests, it allows Gatsby to handle things such as logical file paths, baked in image optimizations, and not having to
