@@ -27,7 +27,7 @@ will allow me to flex my creativity and knowledge, as well as give me a place to
 After researching some React based frameworks, I landed on Gatsby for a couple of reasons.
 
 1. Gatsby takes care of organizing your data through GraphQL
-2. A static site generator that builds HTML during the build proccess was very attractive
+2. A static site generator that builds HTML during the build proccess will ensure a fast web app
 3. Loads of plugins that tackle most major problems in web development such as routing and image processing
 4. Amazing documentation for almost everything you'd need to learn on how to utilize the framework
 
@@ -54,10 +54,12 @@ Which produces JSON like this:
 }
 ```
 
-Gatsby choice of using GraphQL for data related procedures allows for more benefits on top of what GraphQL offers. 
+Gatsby choice of using GraphQL for data related procedures allows for more benefits on top of what GraphQL offers such as:
 
-Not only does using GraphQL cut down on resource requests, it allows Gatsby to handle things such as logical file paths, baked in image optimizations, and not having to
-pass context for all data when using Gatsby `createPages`. For a detailed explanation on why Gatsby uses GraphQL, you can read a write up them about it 
-[here](https://www.gatsbyjs.org/docs/why-gatsby-uses-graphql/).
+* Keeping logical file paths
+* Baked in image optimizations
+* Easier context management for all data when using Gatsby `createPages`.
+
+For a detailed explanation on why Gatsby uses GraphQL, you can read it from them [here](https://www.gatsbyjs.org/docs/why-gatsby-uses-graphql/).
 
 <!-- Push frontend complexity into queries — many data transformations can be done at build-time within your GraphQL queries -->
