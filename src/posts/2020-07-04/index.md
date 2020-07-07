@@ -63,3 +63,38 @@ Gatsby choice of using GraphQL for data related procedures allows for more benef
 For a detailed explanation on why Gatsby uses GraphQL, you can read it from them [here](https://www.gatsbyjs.org/docs/why-gatsby-uses-graphql/).
 
 <!-- Push frontend complexity into queries — many data transformations can be done at build-time within your GraphQL queries -->
+Currently this site doesn't utilize a bunch of GraphQL but the plugin list is extensive when I want to eventually pull in data from places like Github.
+As of now, I am utilizing Gatsby and GraphQL to optimize the low amount of images on this platform utilizing the gatsby-plugin-sharp plugin, as well as dynamically 
+generating the blog posts via Markdown with gatsby-transformer-remark. 
+
+*I do plan to eventually swap over to using MDX instead as I would love the added benefit of utilizing JSX within Markdown.*
+
+### Creating Blog Posts Dynamically With Markdown
+
+I chose to dynamically generate blog posts via markdown as it was a simple and fast solution that would allow me to create posts easily. As a developer, I'm already pretty used
+to markdown language as I use it with my team at work. Gatsby provide a very easy way to setup the usage of Markdown into web-ready content through a plugin called `gatsby-transformer-remark`.
+There is a very well written guide [here](https://www.gatsbyjs.org/docs/adding-markdown-pages/) if you'd like to get it setup yourself. Below I'll go over my implementation.
+
+I first started with installing the plugins with npm and setting up the `gatsby-config.js` file. 
+
+```
+npm install --save gatsby-source-filesystem gatsby-transformer-remark
+```
+```javascript
+module.exports = {
+    plugins: [
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: `posts`,
+                path: `${__dirname}/src/posts`,
+            },
+        },
+        `gatsby-transformer-remark`,
+    ],
+}
+```
+
+Then I created a posts folder, [you can see it here](https://github.com/andrewywoo/andrewywoo.github.io/tree/source/src/posts), under src which will hold the markdown files. 
+I kept them in folders labeled by date but the naming convention is up to you. When providing `gatsby-source-filesystem` the path to this directory, the plugin helps source 
+the Markdown files which can now be transformed to HTML and JSON to be queried via GraphQL.

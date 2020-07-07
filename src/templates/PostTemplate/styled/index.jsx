@@ -32,4 +32,7 @@ export const BlogDiv = styled.div`
      code {
          ${tw`text-sm`}
      }
+     a {
+         ${tw`underline hover:text-red-500`}
+     }
 `
