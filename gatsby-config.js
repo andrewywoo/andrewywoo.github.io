@@ -35,7 +35,7 @@ module.exports = {
                 path: `${__dirname}/src/posts`,
             },
         },
-        `gatsby-transformer-remark`,
+        `gatsby-plugin-mdx`,
         {
             resolve: `gatsby-plugin-manifest`,
             options: {

@@ -8,11 +8,11 @@ import BlogSection from "../components/BlogSection"
 
 const Blog = () => {
     const {
-        allMarkdownRemark: { nodes: posts },
+        allMdx: { nodes: posts },
     } = useStaticQuery(
         graphql`
             {
-                allMarkdownRemark(
+                allMdx(
                     sort: { order: DESC, fields: [frontmatter___date] }
                 ) {
                     nodes {

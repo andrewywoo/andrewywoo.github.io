@@ -7,10 +7,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
     const result = await graphql(`
         {
-            allMarkdownRemark {
+            allMdx {
                 edges {
                     node {
-                        html
                         id
                         frontmatter {
                             slug
@@ -28,7 +27,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         return
     }
 
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    result.data.allMdx.edges.forEach(({ node }) => {
         const {
             frontmatter: { slug },
         } = node

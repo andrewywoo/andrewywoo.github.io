@@ -2,15 +2,16 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 import "twin.macro"
+import { MDXProvider } from "@mdx-js/react"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Layout from "../../components/Layout"
 import SEO from "../../components/Seo"
-import { BlogDiv } from "./styled"
+// import { BlogDiv } from "./styled"
 
 export const query = graphql`
-    query($slug: String!) {
-        markdownRemark(frontmatter: { slug: { eq: $slug } }) {
-            html
+    query BlogPostQuery($slug: String!) {
+        mdx(frontmatter: { slug: { eq: $slug } }) {
             frontmatter {
                 title
                 date(formatString: "dddd, MMMM Do YYYY")
@@ -20,12 +21,10 @@ export const query = graphql`
     }
 `
 
-const PostTemplate = ({ data }) => {
-    const { markdownRemark: post } = data
+const PostTemplate = ({ data: { mdx } }) => {
     const {
         frontmatter: { title, date, author },
-        html,
-    } = post
+    } = mdx
 
     return (
         <Layout>
@@ -43,7 +42,9 @@ const PostTemplate = ({ data }) => {
                     <aside tw="text-center mb-8 lg:mb-0">
                         <div tw="font-mono">
                             written by{" "}
-                            <OutboundLink href={`https://twitter.com/${author.substr(1)}`}>
+                            <OutboundLink
+                                href={`https://twitter.com/${author.substr(1)}`}
+                            >
                                 {author}
                             </OutboundLink>
                         </div>
@@ -54,7 +55,9 @@ const PostTemplate = ({ data }) => {
                             Back to the blog
                         </Link>
                     </aside>
-                    <BlogDiv dangerouslySetInnerHTML={{ __html: html }} />
+                    <MDXProvider>
+                        <MDXRenderer>{mdx.body}</MDXRenderer>
+                    </MDXProvider>
                 </div>
             </article>
         </Layout>
