@@ -28,7 +28,7 @@ const SEO = ({ description, lang, meta, title, image }) => {
     )
 
     const metaDescription = description || site.siteMetadata.description
-    const metaImage = `${site.siteMetadata.url}static/` + (image || site.siteMetadata.image);
+    const metaImage = `${site.siteMetadata.url}/static` + (image || site.siteMetadata.image);
 
     return (
         <Helmet
