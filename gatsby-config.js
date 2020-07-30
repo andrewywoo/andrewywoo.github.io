@@ -2,7 +2,9 @@ module.exports = {
     siteMetadata: {
         title: `Andrew Woo`,
         description: `Andrew Woo Software Engineer Site`,
+        url: `https://andrewwoo.dev`,
         author: `@andrewywoo`,
+        image: `/images/andrew.jpg`,
     },
     plugins: [
         {
@@ -37,6 +39,49 @@ module.exports = {
         },
         `gatsby-transformer-remark`,
         {
+            resolve: `gatsby-transformer-remark`,
+            options: {
+                plugins: [
+                    {
+                        resolve: `gatsby-remark-images`,
+                        options: {
+                            maxWidth: 800,
+                        },
+                    },
+                    {
+                        resolve: `gatsby-remark-prismjs`,
+                        options: {
+                            classPrefix: "language-",
+                            inlineCodeMarker: null,
+                            aliases: {},
+                            showLineNumbers: false,
+                            noInlineHighlight: false,
+                            languageExtensions: [
+                                {
+                                    language: "superscript",
+                                    extend: "javascript",
+                                    definition: {
+                                        superscript_types: /(SuperType)/,
+                                    },
+                                    insertBefore: {
+                                        function: {
+                                            superscript_keywords: /(superif|superelse)/,
+                                        },
+                                    },
+                                },
+                            ],
+                            prompt: {
+                                user: "root",
+                                host: "localhost",
+                                global: false,
+                            },
+                            escapeEntities: {},
+                        },
+                    },
+                ],
+            },
+        },
+        {
             resolve: `gatsby-plugin-manifest`,
             options: {
                 name: `andrew-woo-dev-portfolio`,
@@ -49,42 +94,5 @@ module.exports = {
             },
         },
         `gatsby-plugin-emotion`,
-        {
-            resolve: `gatsby-transformer-remark`,
-            options: {
-              plugins: [
-                {
-                  resolve: `gatsby-remark-prismjs`,
-                  options: {
-                    classPrefix: "language-",
-                    inlineCodeMarker: null,
-                    aliases: {},
-                    showLineNumbers: false,
-                    noInlineHighlight: false,
-                    languageExtensions: [
-                      {
-                        language: "superscript",
-                        extend: "javascript",
-                        definition: {
-                          superscript_types: /(SuperType)/,
-                        },
-                        insertBefore: {
-                          function: {
-                            superscript_keywords: /(superif|superelse)/,
-                          },
-                        },
-                      },
-                    ],
-                    prompt: {
-                      user: "root",
-                      host: "localhost",
-                      global: false,
-                    },
-                    escapeEntities: {},
-                  },
-                },
-              ],
-            },
-          },
     ],
 }

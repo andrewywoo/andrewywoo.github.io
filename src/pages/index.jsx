@@ -50,7 +50,7 @@ const IndexPage = () => {
 
         return () => observer.disconnect()
     }, [sectionRef, setShouldShowProfileHeader])
-
+console.log(data.file.childImageSharp.fluid);
     return (
         <>
             <Konami
